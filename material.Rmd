@@ -9,22 +9,398 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Why R for Data Management and Visualization? 
+- **Open-source and accessible**:  R eliminates licensing costs and makes data management and visualization accessible to everyone.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+- **Efficient data handling**: R excels at importing, cleaning, transforming, and organizing data through various packages and functions.
 
-```{r cars}
-summary(cars)
+- **Flexibility and power**: R offers a diverse set of packages and functions, allowing you to create a wide variety of visualizations, from basic bar charts to complex interactive dashboards.
+- **The Array of Packages**: Over 18,000 packages in the CRAN
+repository, the number is constantly growing
+* **Active community and support**: The vibrant R community provides a wealth of online resources, tutorials, and forums where you can find answers to your questions and connect with other users.
+
+- **Customization and control**:You can personalize your visualizations to a high degree controlling every aspect of the visual elements, including colors, fonts, labels, layouts.
+
+## R drawbacks
+- **Weak Origin**: shares origin with old languages like S. Base
+package does not have support for dynamic or 3D graphics
+- **Data Handling**: physical memory stores the objects, hence
+utilising more memory
+- **Complicated Language**: R is not an easy language to learn.
+It has a steep learning curve
+- **Lesser Speed**: R packages and the R programming language is
+much slower than other languages like MATLAB and Python
+- **Spread Across various Packages**: The algorithms in R are
+spread across different packages. Programmers without prior
+knowledge of packages may find it difficult to implement
+algorithms
+
+## Introduction to R and R studio
+
+- R is a free open source programming language for statistical computing and data visualization. 
+- Created by Ross Ihaka and Robert Gentleman in 1992
+ (University of Auckland, New Zealand)
+- Yes, R stems from the first letter of their first names, inspired
+by another programming language called S
+- R is useful when conducting statistical analysis and visualizations in different fields.
+- Where there is a lot of data to wrangle, R is the best option.
+- R Allows for rapid development of new tools according to user demand.
+
+- These tools are distributed as packages, which any user can download to customize the R environment.
+- Has an active Core Team, very large and active community of R- Users.
+
+
+- Software and packages can be downloaded from
+www.cran.r-project.org
+- R Studio is an Integrated Development Environment(IDE) for R.
+- At its simplest, R is like a car’s engine while RStudio is like a
+car’s dashboard
+## Overview of R Studio
+- Having installed R and RStudio on your computer, you have
+two new programs (also called applications) you can open
+
+- To use RStudio, open it as you would open any program in
+your computer. You can even begin to use the console.
+
+- R studio has a 4 pane window, top left is the R code editor allowing you to create a file with multiple lines of R code.
+
+- Bottom left is the interactive console where you can type in R statements one line at a time.
+
+- The top right window shows your workspace which includes a list of objects currently in memory. There's also a history tab with a list of your prior commands.
+
+- Bottom right shows a plot if you've created a data visualization with your R code.
+
+- Now that we have installed RStudio, lets take a couple minutes
+to familiarize ourselves with the RStudio environment.
+Take note!
+- R is case-sensitive: That is, the name **AMR** in R will not be
+the same as **amr** nor **Amr** nor **aMr** nor **amR**.
+
+-Generally, we don’t work in the console, at least for writing
+important codes. We use R script instead
+
+- However, let’s take a few minutes to work with the console:
+
+- Click on the console, just to the right of one of the “>”
+prompts.
+
+- We can use the console like a calculator. For example, type
+13+45 at the prompt and hit enter.
+
+- Now hit the “up” arrow. The R console remembers all previous
+commands that it has executed in this session, which allows you
+to re-run commands relatively easily.
+
+-Any command that is preceded by a pound sign (#) is ignored
+by the R console. 
+- Try typing #2+2 and hitting “Enter”.
+Nothing happens, right?
+
+## R Basics for data management and visualization.
+
+- Setting your working directory to let R know where to get all your files
+- Change your working directory with the setwd() function
+- setwd("~/mydirectory")
+- setwd("E:/R projects")
+
+## Entering inputs into R
+- The symbol <- is the assignment operator
+- The # indicates a comment(i.e anything to the right is ignored)
+
+## Evaluation of the input
+- When a complete expression is typed into R and the code is run, you obtain an autoprinted output.
+
+## How R Works I
+
+- R creates its objects in memory and saves them in a single
+file called .RData (by default)`
+
+- Commands, recorded in a .Rhistory file may be recalled
+and re-issued using up- and down-arrow
+
+- Recalled commands may be edited
+
+- Flawed commands may be abandoned by pressing Esc
+
+- Copy-and-paste from a "file"
+
+- Copy-and-paste from the history window used for recalling
+several commands at once
+
+- To end your session type q() or just kill the window.
+
+## How R Works II
+
+- There are a number of drop-down menus in the R Gui
+(File, Edit, View, Packages, Help).
+- To create a new R script in RStudio, click on the “blank paper”
+icon at the far left of the RStudio toolbar (or File»New File»R
+script).
+- Input commands into R console window. When R is ready
+for input, it prints out its prompt, a ">".
+
+- Commands consist of expressions or assignments and are
+separated by a semi-colon (;) or by a newline. They can be
+grouped together using braces (f and g ) and comments
+can be included and are indicated with a hash (#).
+
+- Enter a line with a command after the prompt and press
+Enter. The programme carries out the command and
+prints the result if relevant.
+
+- For example, if the expression is typed in, the following is printed in the R console:
+```{r}
+2+2 
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+- The prompt > indicates that R is ready for another
+command. 
+- If a command is incomplete at the end of a
+line, the prompt + is displayed on subsequent lines until
+the command is syntactically complete.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+
+## R as a Calculator
+
+- A basic but useful purpose of R is to perform simple
+calculations
+```{r}
+# Addition and Subtraction
+5 + 4
+
+124 - 26.82
+
+# Multiplication and Division
+5 * 4
+
+35/8
+
+# Exponentials and Exponential Function: 
+
+exp(-2)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Saving and Loading Script
+
+- Now that you have been able to write your first script in R, let
+us save it and then quite RStudio. Ensure you remember where
+you have saved the file.
+
+- Open RStudio once more and try to locate the script file and
+then open it once more for use.
+
+## Variable names
+
+The rules
+- Can’t start with a number
+
+- Made up of letters, numbers dots and underscores
+
+ The guidelines
+- Make the name mean something (x = bad, weight = good)
+
+- Keep variables all lower case
+
+- Separate words with dots or underscores
+
+- gene_name or gene.name are the preferred options
+
+## R Packages
+
+- A set of functions designed to perform more specific statistical
+or graphical tasks examples and documentation.
+- 18,773+ packages found on the CRAN
+- To use packages in R, download using install.packages()
+or pacman::p_load()
+
+## Working with R packages
+- Base R and most R packages are available for download from
+the CRAN
+
+- base R comes with a number of basic data management,
+analysis, and graphical tools (currently 15 base packages)
+
+- However, R’s power and flexibility lie in its array of packages
+
+- To learn more about a package eg. dplyr, one can check for
+the reference manual using Rseek or use the code;
+
+## Installing and using packages
+-  To use packages in R, we must first install them using the
+install.packages() or p_load function, which typically
+downloads the package from CRAN and installs it for use.
+
+- The command for installing a package is:
+- install.packages("thepackagename")
+
+- Example package installation using install.packages();
+
+- install.packages("pacman")
+
+- install.packages("pacman",quiet=TRUE)
+
+- install.packages("pacman", dependencies=TRUE)
+
+- Example: Try installing the package ggplot
+
+## Loading R Packages
+- Once the packages have been installed, we can load them in
+the R environment using the functions library() or p_load().
+
+- library() loads the packages only 
+
+- pacman::p_load() is better and efficient, does the instalation
+and loads the package.
+
+- Functions and data structures within the package will then be
+available for use.
+
+- To use a package in your work once it's installed, load it with:
+library("thepackagename")
+
+- The following is an example of how we can load a package for
+use in R
+
+```{r}
+## using the library function
+library(MASS)
+library(dplyr, quiet = TRUE)
+## using p_load
+#pacman::p_load(MASS, dplyr)
+``` 
+
+## Common R Packages
+
+- In this section, we list and give details on some common
+packages in R.
+
+- Generally, these are some of the most popular and commonly
+used packages.
+
+- These packages do not have rankings in any order but are
+provided here due to their functionalities and diverse
+operations.
+
+## Packages: Analyse & Explore
+
+## tidyverse
+
+The core tidyverse includes the packages that you’re likely to use in
+everyday data analyses. As of tidyverse 1.3.0, the following
+packages are included in the core tidyverse: ggplot2, dplyr,
+tidyr, readr, purrr, tibble, stringr and forcats. 
+
+## dplyr
+
+We use this library for performing data wrangling and data analysis.
+The dplyr library facilitates several functions for the data frames in R
+
+## purrr 
+
+purrr enhances R’s functional programming (FP) toolkit by
+providing a complete and consistent set of tools for working with
+functions and vectors.
+
+## tidyr
+
+As the name suggests, we use tidyr to make the data ‘tidy’. It works
+well with dplyr. This is basically an evolution of the reshape2
+package which is described later.
+
+## ggplot2
+
+With ggplot2, you can create graphics declaratively. ggplot2 is
+famous for its elegant and quality graphs that sets it apart from
+other visualization packages.
+
+## stringr
+
+A consistent, simple and easy-to-use set of wrappers around the
+fantastic ‘stringi’ package.
+
+## Creating objects in R
+
+* Objects in R, are what we call variables in other programming languages. They are instances of a class.
+* R has these major classes of objects, character, numeric (real numbers), integer,complex
+and logical (True/False)
+* There is really only one rule about vectors in R, which is that**A vector can only contain objects of the same class**. 
+* A vector, a matrix, a dataframe, a list, an array, or a factor are all objects in R. 
+
+* R allows you to create various data objects to store and manipulate information. Here's an overview of some common objects and how to create them:
+
+               1). Scalars :
+   
+```{r}
+# Integer
+age <- 25
+
+# Double (floating-point number)
+height <- 1.75
+
+# Character string
+name <- "John Doe"
+```
+
+---  
+                 2). Vectors  :
+
+Ordered collections of elements of the same data type. Create vectors using the c() function)(concatenating) or directly within parentheses.
+```{r}
+x <- c(0.5,0.9,0.7, 0.6) ## numeric
+ x <- c(TRUE, FALSE) ## logical
+x <- c(T, F) ## logical
+ x <- c("a", "b", "c") ## character
+``` 
+         
+               3). Matrices :
+ Two-dimensional arrays of elements, typically of the same data type. Created using the matrix() function. Matrices are constructed column wise.
+ 
+```{r}
+# Numeric matrix
+grades <- matrix(c(80, 95, 70, 90, 85, 65), nrow = 2,
+                 ncol = 3)
+
+# Character matrix
+countries <- matrix(c("USA", "Canada",
+                      "China", "France", "Germany","Kenya"), 
+                    nrow = 2, ncol = 3)
+countries 
+
+```
+Matrices can be created by column-binding or row-binding with the cbind() and rbind() functions.
+```{r}
+x <-c(1:3)
+y <-c(10:12)
+data1<-cbind(x, y)
+data2<-rbind(x, y)
+```
+ 
+                4). Data Frames:
+                
+Tabular structures with columns of potentially different data types or different classes. Unlike matrices, data frames can store different classes of objects in each column.
+package "dplyr" is used to work efficiently with data frames.
+Created using the data.frame() function.
+```{r}
+# Sample data frame
+dataFR <- data.frame(
+  name = c("Alice", "Bob", "Charlie"),
+  age = c(22, 30, 28),
+  city = c("Nairobi", "Kisumu", "Kakamega")
+)
+dataFR
+
+```
+                
+           5). Factors 
+Factors are the data objects which are used to represent categorical data and store it on multiple levels. We can have either ordered and unordered factors.e factor function is used to create a factor.           Using factors with labels is better than using integers because factors are self-describing.
+           
+```{r}
+gender_vector <- c("Male", "Female", "Female", "Male", "Male")
+#Use the factor() function to convert the character vector into a factor variable
+
+gender_factor <- factor(gender_vector, levels = c("Female", "Male"))
+gender_factor
+table(gender_factor)
+```
