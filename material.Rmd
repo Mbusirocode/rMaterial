@@ -72,13 +72,19 @@ www.cran.r-project.org
 - At its simplest, R is like a car’s engine while RStudio is like a
 car’s dashboard
 
-## Overview of R Studio
+## Getting started with R Studio
 - Having installed R and RStudio on your computer, you have
-two new programs (also called applications) you can open
+two new programs (also called applications) you can open.
 
 - To use RStudio, open it as you would open any program in
-your computer. You can even begin to use the console.
+your computer. 
 
+- Now that we have installed RStudio, lets take a couple minutes
+to familiarize ourselves with the RStudio environment.
+
+```{r, echo=FALSE, fig.cap="Overview of R Studio", out.width = '100%'}
+knitr::include_graphics("overviewRstudio.png")
+```
 - R studio has a 4 pane window, top left is the R code editor allowing you to create a file with multiple lines of R code.
 
 - Bottom left is the interactive console where you can type in R statements one line at a time.
@@ -87,8 +93,6 @@ your computer. You can even begin to use the console.
 
 - Bottom right shows a plot if you've created a data visualization with your R code.
 
-- Now that we have installed RStudio, lets take a couple minutes
-to familiarize ourselves with the RStudio environment.
 
 \textcolor{red}{Take note!}
 
@@ -116,7 +120,7 @@ by the R console.
 - Try typing #2+2 and hitting “Enter”.
 Nothing happens, right?
 
-## R Basics 
+## Setting your working directory 
 
 - Setting your working directory to let R know where to get all your files
 
@@ -158,6 +162,10 @@ several commands at once
 
 - There are a number of drop-down menus in the R Gui
 (File, Edit, View, Packages, Help).
+
+```{r, echo=FALSE, fig.cap="New file layout", out.width = '70%'}
+knitr::include_graphics("newscript.png")
+```
 - To create a new R script in RStudio, click on the “blank paper”
 icon at the far left of the RStudio toolbar (or File»New File»R
 script).
@@ -344,6 +352,32 @@ other visualization packages.
 A consistent, simple and easy-to-use set of wrappers around the
 fantastic ‘stringi’ package.
 
+## \textcolor{blue}{Exercise}
+
+- install the following packages using the p_load function from
+pacman package.
+
+- MASS, ggplot2 , dplyr, tidyr
+
+- Execute the following in a new r file called demo.R
+
+```{r}
+# Multiplying 3 by 4
+3 * 4
+# creating our first few objects
+x <- 10 # Assigning the value 10 to the variable x
+x # Calling the value assigned to x
+y <- 2 # Assigning the value 2 to the variable x
+z <- x/y # assigning the value z to x/y
+z # calling z
+a <- c(1:12)
+# a>9 OR a<4 Gives us 1 2 3 10 11 12 Having R do this
+a
+a > 9
+a < 4
+a > 9 | a < 4
+a[a > 9 | a < 4]
+```
 ## Creating objects in R
 
 * Objects in R, are what we call variables in other programming languages. They are instances of a class.
@@ -428,3 +462,24 @@ gender_factor <- factor(gender_vector, levels = c("Female", "Male"))
 gender_factor
 table(gender_factor)
 ```
+
+## Vectorized arithmetic
+- A data vector is simply an array
+of numbers, and a vector variable can be constructed like this.
+
+- Suppose that we also have the heights that correspond to
+the weights above. The body mass index (BMI) is defined
+for each person as the weight in kilograms divided by the
+square of the height in meters. This could be calculated as
+follows:
+```{r}
+ weight <- c(30, 60, 72, 57, 40, 95, 72)
+ height <- c(1.45, 1.75, 1.78, 1.65, 1.90, 1.74, 1.91)
+  bmi <- weight/height^2
+  mean(weight)
+sd(weight)
+plot(height,weight,pch=3)
+
+```
+
+
