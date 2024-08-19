@@ -1,23 +1,36 @@
 ---
-title: "material"
-author: "datacraft"
+title: " R training material"
+author: "datacraft datalab "
 date: "`r Sys.Date()`"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+- R is a free open source programming language for statistical computing and data visualization. 
 
-## Why R for Data Management and Visualization? 
+- Created by **R**oss Ihaka and **R**obert Gentleman in 1992
+ (University of Auckland, New Zealand).
+ 
+- Yes, R stems from the first letter of their first names, inspired
+by another programming language called S.
+
+- R is useful when conducting statistical analysis and visualizations in different fields.
+
+- Where there is a lot of data to wrangle, R is the best option.
+
+## Why R? 
 - **Open-source and accessible**:  R eliminates licensing costs and makes data management and visualization accessible to everyone.
 
 - **Efficient data handling**: R excels at importing, cleaning, transforming, and organizing data through various packages and functions.
 
 - **Flexibility and power**: R offers a diverse set of packages and functions, allowing you to create a wide variety of visualizations, from basic bar charts to complex interactive dashboards.
+
 - **The Array of Packages**: Over 18,000 packages in the CRAN
 repository, the number is constantly growing
+
 * **Active community and support**: The vibrant R community provides a wealth of online resources, tutorials, and forums where you can find answers to your questions and connect with other users.
 
 - **Customization and control**:You can personalize your visualizations to a high degree controlling every aspect of the visual elements, including colors, fonts, labels, layouts.
@@ -25,12 +38,16 @@ repository, the number is constantly growing
 ## R drawbacks
 - **Weak Origin**: shares origin with old languages like S. Base
 package does not have support for dynamic or 3D graphics
+
 - **Data Handling**: physical memory stores the objects, hence
 utilising more memory
+
 - **Complicated Language**: R is not an easy language to learn.
 It has a steep learning curve
+
 - **Lesser Speed**: R packages and the R programming language is
 much slower than other languages like MATLAB and Python
+
 - **Spread Across various Packages**: The algorithms in R are
 spread across different packages. Programmers without prior
 knowledge of packages may find it difficult to implement
@@ -38,24 +55,23 @@ algorithms
 
 ## Introduction to R and R studio
 
-- R is a free open source programming language for statistical computing and data visualization. 
-- Created by Ross Ihaka and Robert Gentleman in 1992
- (University of Auckland, New Zealand)
-- Yes, R stems from the first letter of their first names, inspired
-by another programming language called S
-- R is useful when conducting statistical analysis and visualizations in different fields.
-- Where there is a lot of data to wrangle, R is the best option.
+
+
 - R Allows for rapid development of new tools according to user demand.
 
 - These tools are distributed as packages, which any user can download to customize the R environment.
+
 - Has an active Core Team, very large and active community of R- Users.
 
 
 - Software and packages can be downloaded from
 www.cran.r-project.org
+
 - R Studio is an Integrated Development Environment(IDE) for R.
+
 - At its simplest, R is like a car’s engine while RStudio is like a
 car’s dashboard
+
 ## Overview of R Studio
 - Having installed R and RStudio on your computer, you have
 two new programs (also called applications) you can open
@@ -73,11 +89,13 @@ your computer. You can even begin to use the console.
 
 - Now that we have installed RStudio, lets take a couple minutes
 to familiarize ourselves with the RStudio environment.
-Take note!
+
+\textcolor{red}{Take note!}
+
 - R is case-sensitive: That is, the name **AMR** in R will not be
 the same as **amr** nor **Amr** nor **aMr** nor **amR**.
 
--Generally, we don’t work in the console, at least for writing
+- Generally, we don’t work in the console, at least for writing
 important codes. We use R script instead
 
 - However, let’s take a few minutes to work with the console:
@@ -92,20 +110,26 @@ prompts.
 commands that it has executed in this session, which allows you
 to re-run commands relatively easily.
 
--Any command that is preceded by a pound sign (#) is ignored
+- Any command that is preceded by a pound sign (#) is ignored
 by the R console. 
+
 - Try typing #2+2 and hitting “Enter”.
 Nothing happens, right?
 
-## R Basics for data management and visualization.
+## R Basics 
 
 - Setting your working directory to let R know where to get all your files
+
 - Change your working directory with the setwd() function
+
 - setwd("~/mydirectory")
+
 - setwd("E:/R projects")
 
 ## Entering inputs into R
+
 - The symbol <- is the assignment operator
+
 - The # indicates a comment(i.e anything to the right is ignored)
 
 ## Evaluation of the input
