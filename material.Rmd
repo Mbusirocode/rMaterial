@@ -462,7 +462,74 @@ gender_factor <- factor(gender_vector, levels = c("Female", "Male"))
 gender_factor
 table(gender_factor)
 ```
+ 6). Lists :
+           
+A list in R is a generic object consisting of an ordered collection of objects. Lists are one-dimensional, different data classes. 
 
+The list can be a list of vectors, a list of matrices, a list of characters and a list of functions, and so on. 
+
+A list is a vector but with heterogeneous data elements. A list in R is created with the use of list() function.           
+           
+```{r}
+# Create a list containing strings, numbers, vectors and a logical
+# values.
+list_data <- list("Red", "Green", c(21,32,11), TRUE, 51.23, 119.1)
+print(list_data)
+```
+           7). Missing values
+   Missing values are denoted by NA for values that are not available or NaN(not a number) or undefined mathematical operations.
+• is.na() is used to test objects if they are NA
+• is.nan() is used to test for NaN
+• NA values have a class also, so there are integer NA, character NA, etc
+
+* You can create an object using the “<-“ or an equals “=” sign. Both of these are used to assign values to objects. 
+
+\textcolor{red}{NOTE}
+
+There are a few rules to keep in mind while naming an object in R.
+
+  * Object names should be short and explicit.
+  
+  * Object names cannot start with a number.
+     
+  * “Data” is different than “data” as R is case sensitive.
+  
+  * The names of default fundamental functions should not be used as object          names in R. eg: function, if, else, repeat, etc.
+  
+* **Tip** :  Choose meaningful names for your data objects to improve code readability. 
+
+## Importing and exporting Data in R
+
+\textcolor{blue}{Reading Data into R}
+
+ * read.table, read.csv, for reading tabular data
+ * readLines, for reading lines of a text file
+ * source, for reading in R code files (inverse of dump)
+* dget, for reading in R code files (inverse of dput)
+* load, for reading in saved workspaces
+
+## Reading Data Files with read.table()
+* data <- read.table("location of your file,.txt") #if text file
+
+* data <- read.csv("location of your file.csv") #if csv file
+
+* for excel file, install the package "read.xl".
+
+* library("readxl")
+
+* my_data <- read_excel("myfile.xls")
+# xlsx files
+* my_data <- read_excel("myfile.xlsx")
+
+## Subsetting objects in R
+## Subsetting a Vector
+objects in R and they can be subsetted using the [] operator
+```{r}
+x <- c(0.5,0.9,0.7,0.8,0.6)
+x[2] ## Extract the second element
+x[2:4] ##extract multiple elements of a vector by passing through an integer vector
+x[c(1,3,5)] ##extract multiple elements of a vector through arbitrary integers
+```
 ## Vectorized arithmetic
 - A data vector is simply an array
 of numbers, and a vector variable can be constructed like this.
