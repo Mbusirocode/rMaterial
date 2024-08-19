@@ -1,5 +1,5 @@
 ---
-title: " R training material"
+title: "Introduction to R"
 author: "dataCraft Lab "
 date: "`r Sys.Date()`"
 output: pdf_document
