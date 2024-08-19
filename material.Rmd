@@ -1,6 +1,6 @@
 ---
 title: " R training material"
-author: "datacraft datalab "
+author: "dataCraft Lab "
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
