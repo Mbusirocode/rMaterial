@@ -71,6 +71,17 @@ www.cran.r-project.org
 
 - At its simplest, R is like a car’s engine while RStudio is like a
 car’s dashboard
+-R Studio offers numerous helpful features:
+
+-A user-friendly interface
+-The ability to write and save reusable scripts
+-Easy access to all the imported data and created objects (like variables, functions, etc.)
+-Exhaustive help on any object
+-Code autocompletion
+-The ability to create projects to organize and share your work with your collaborators more efficiently
+-Plot previewing
+-Easy switching between terminal and console
+-Operational history tracking
 
 ## Getting started with R Studio
 - Having installed R and RStudio on your computer, you have
