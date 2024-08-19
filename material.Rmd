@@ -482,4 +482,47 @@ plot(height,weight,pch=3)
 
 ```
 
+## Getting help in R 
 
+- R has a built-in help facility. To get more information on any specific function,
+e.g. sqrt(), the command is help(sqrt) # or ? sqrt
+
+- You can also obtain help on features specified by special characters, but they
+must be enclosed in single or double quotes (e.g. "[[") help("[[")
+
+- Help is also available in HTML format by running help.start()
+
+- For more information use ? help
+
+## Exercise
+
+- Using the R inbuilt data set mtcars
+
+- Take a first look at the data using the dimension, head, structure. Useful functions are dim(), head(), str()
+and summary().
+```{r}
+data("mtcars")
+dim(mtcars)
+head(mtcars)
+str(mtcars)
+```
+
+## Data Visualization
+ - For simple plotting, use plot, hist, pairs, boxplot,...
+– To add to existing plots, use points, lines, abline, legend, title,
+mtext,...
+– for Interacting with graphics, use locator, identify
+– For three dimensional data, use contour, image, persp, 
+```{r}
+library(MASS) # loads MASS package
+# Colour points and choose plotting symbols according to the
+# levels of a factor
+plot(Cars93$Weight, Cars93$EngineSize, col=as.numeric(Cars93$Type),pch=as.numeric(Cars93$Type))
+# Adds x and y axes labels and a title.
+plot(Cars93$Weight, Cars93$EngineSize, ylab="Engine Size",xlab="Weight", main="My plot")
+# Add lines to the plot.
+lines(x=c(min(Cars93$Weight), max(Cars93$Weight)), y=c(min(Cars93$EngineSize), max(Cars93$EngineSize)), lwd=4, lty=3, col="green")
+abline(h=3, lty=2) # horizontal line
+abline(v=1999, lty=4) # vertical line
+```
+```
