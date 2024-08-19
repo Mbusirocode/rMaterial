@@ -30,6 +30,7 @@ by another programming language called S.
 
 - **The Array of Packages**: Over 18,000 packages in the CRAN
 repository, the number is constantly growing
+
 - **Useful for Data wragling**: R offers a host of packages that help data analysts turn unstructured, messy data into a structured format.
 
 * **Active community and support**: The vibrant R community provides a wealth of online resources, tutorials, and forums where you can find answers to your questions and connect with other users.
