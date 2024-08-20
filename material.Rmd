@@ -240,6 +240,13 @@ command.
 line, the prompt + is displayed on subsequent lines until
 the command is syntactically complete.
 
+## Datasets: included in R
+- A number of small datasets are included with R during installation. We might make use of one or more.
+- There is no further installation required to access the included datasets.
+- Command library loads the package MASS (for Modern Applied Statistics with S) into memory. **library(MASS)**
+- Command **data()** will list all the datasets in loaded packages. 
+- The command **data(phones)** will load the data set phones into memory
+
 
 ## R as a Calculator
 
