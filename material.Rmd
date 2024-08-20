@@ -113,7 +113,7 @@ to familiarize ourselves with the RStudio environment.
  
  4. The **Output pane** displays the plots, tables, or HTML outputs of executed code along with files saved to disk. 
  
-```{r, echo=FALSE, fig.cap="Overview of R Studio", out.width = '100%'}
+```{r, echo=FALSE, fig.cap="Overview of R Studio", out.width = '80%'}
 knitr::include_graphics("rstudio_panes.jpeg")
 ```
 
@@ -269,10 +269,9 @@ you have saved the file.
 then open it once more for use.
 
 ## Essentials of R programming
+# Data types in R
 
-## Data types in R
-
-1. Numeric ; Decimal values are called numerics in R.
+1. **Numeric** ; Decimal values are called numerics in R.
 ```{r}
 x<-1.5
 class(x)
@@ -281,46 +280,63 @@ class(x)
 is.integer(x) #is x an integer
 ```
 
-2. Integer ; To create an integer variable in R, we invoke the as.integer function.
+2. **Integer** ; To create an integer variable in R, we invoke the as.integer function.
 We can be assured that y is indeed an integer by applying the is.integer
 function. 
 ```{r}
 y<-as.integer(3)
 ```
-3. Complex; A complex value in R is defined via the pure imaginary value i.
+3. **Complex** ; A complex value in R is defined via the pure imaginary value i.
 ```{r}
 z = 1 + 3i
 class(z)
 ```
-4. Logical ; A logical value is often created via comparison between variables. It is binary,
+4. **Logical** ; A logical value is often created via comparison between variables. It is binary,
 i.e. two possible values represented by TRUE and FALSE
 ```{r}
 x<- c(9, 4, 5, 1)
 x>6
 ```
-Common comparison operators
+
+5. Character/String ;A character object is used to represent string values in R.We convert objects
+into character values with the as.character() function
+```{r}
+x = as.character("dataCraft")
+```
+**Common comparison operators**
 
 ```{r,echo= FALSE}
 options(knitr.kable.NA = '')
 data.frame(Operator = c(">", "<", ">=", "<=", "==", "! ="),
           Description = c("Greater than", "Less than", "Greater than or Equal to","Less than or Equal to", "Equal to", "Not Equal to"),
            Example = c("3 > 2","4<5","3 >= 3","3 <= 2","2 == 3","2! = 3"), 
-           Result = NA )|>
+           Result = c("TRUE", "TRUE", "TRUE", "FALSE", "FALSE", "TRUE") )|>
   knitr::kable()
 ```
 
-5. Character/String
+**Common arithmetic operators**
 
-6. Factor
+```{r,echo= FALSE}
+options(knitr.kable.NA = '')
+data.frame(Operator = c("+", "-", "*", "/", "^or**", "%%"),
+          Description = c("Addition", "Subtraction", "Multiplication","Division", "Exponentiation", "Modulus"),
+           Example = c("2+2","2-2","2*2","2/2","2^2 or 2**2","2 %% 2"), 
+           Result = c("4", "0", "4", "1", "4", "0") )|>
+  knitr::kable()
+```
+
+
 
 ## Variable names
 
-The rules
+\textcolor{red}{The rules}:
+
 - Can’t start with a number
 
 - Made up of letters, numbers dots and underscores
 
- The guidelines
+\textcolor{red}{The guidelines}: 
+ 
 - Make the name mean something (x = bad, weight = good)
 
 - Keep variables all lower case
@@ -517,7 +533,6 @@ height <- 1.75
 name <- "John Doe"
 ```
 
----  
                  2). Vectors  :
 
 Ordered collections of elements of the same data type. Create vectors using the c() function)(concatenating) or directly within parentheses.
@@ -551,6 +566,7 @@ data1<-cbind(x, y)
 data2<-rbind(x, y)
 ```
  
+## Day 2
                 4). Data Frames:
                 
 Tabular structures with columns of potentially different data types or different classes. Unlike matrices, data frames can store different classes of objects in each column.
@@ -696,6 +712,8 @@ head(mtcars)
 str(mtcars)
 ```
 
+## Day 3
+
 # What is Data Visualization?
 It is a technique used to deliver insights in data using visual cues such as graphs, charts, maps etc.
 
@@ -744,29 +762,25 @@ Some of the types of visualizations offered by R are:
 * Maps
 * 3D Images
 
-##### General Features
-- For simple plotting, use ***plot, hist, pairs, boxplot,...***
-– To add to existing plots, use ***points, lines, abline, legend, title,
-mtext,...***
-– For interacting with graphics, use ****locator, identify****
-– For three dimensional data, use ***contour, image, persp,....*** 
+## General Features
+- For simple plotting, use **plot, hist, pairs, boxplot,...**
+– To add to existing plots, use **points, lines, abline, legend, title,
+mtext,...**
+– For interacting with graphics, use **locator, identify**
+– For three dimensional data, use **contour, image, persp,....**
+
 ```{r}
 library(MASS) # loads MASS package
-
-- Colour points and choose plotting symbols according to the levels of a factor
-```{r}
+#Colour points and choose plotting symbols according to the levels of a factor
 plot(Cars93$Weight, Cars93$EngineSize, col=as.numeric(Cars93$Type),pch=as.numeric(Cars93$Type))
-```
 
-- Adds x and y axes labels and a title
 
-```{r}
+#Adds x and y axes labels and a title
+
 plot(Cars93$Weight, Cars93$EngineSize, ylab="Engine Size",xlab="Weight", main="My plot")
-```
 
-- Add lines to the plot.
+#Add lines to the plot.
 
-```{r}
 lines(x=c(min(Cars93$Weight), max(Cars93$Weight)), y=c(min(Cars93$EngineSize), max(Cars93$EngineSize)), lwd=4, lty=3, col="green")
 abline(h=3, lty=2) # horizontal line
 abline(v=1999, lty=4) # vertical line
@@ -922,3 +936,4 @@ colnames(data)=paste0("col",1:5)
 #Row names
 rownames(data)=paste0("row",1:5)
 heatmap(data)
+```
