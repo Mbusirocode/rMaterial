@@ -242,8 +242,13 @@ the command is syntactically complete.
 
 ## Datasets: included in R
 - A number of small datasets are included with R during installation. We might make use of one or more.
+
 - There is no further installation required to access the included datasets.
-- Command library loads the package MASS (for Modern Applied Statistics with S) into memory. **library(MASS)**
+
+- Command library loads the package MASS (for Modern Applied Statistics with S) into memory.
+
+**library(MASS)**
+
 - Command **data()** will list all the datasets in loaded packages. 
 - The command **data(phones)** will load the data set phones into memory
 
@@ -297,7 +302,9 @@ The rules
 
 - A set of functions designed to perform more specific statistical
 or graphical tasks examples and documentation.
+
 - 21,131+ packages found on the CRAN
+
 - To use packages in R, download using install.packages()
 or pacman::p_load()
 
@@ -448,9 +455,12 @@ a[a > 9 | a < 4]
 ## Creating objects in R
 
 * Objects in R, are what we call variables in other programming languages. They are instances of a class.
+
 * R has these major classes of objects, character, numeric (real numbers), integer,complex
 and logical (True/False)
+
 * There is really only one rule about vectors in R, which is that**A vector can only contain objects of the same class**. 
+
 * A vector, a matrix, a dataframe, a list, an array, or a factor are all objects in R. 
 
 * R allows you to create various data objects to store and manipulate information. Here's an overview of some common objects and how to create them:
