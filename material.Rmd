@@ -696,22 +696,229 @@ head(mtcars)
 str(mtcars)
 ```
 
-## Data Visualization
- - For simple plotting, use plot, hist, pairs, boxplot,...
-– To add to existing plots, use points, lines, abline, legend, title,
-mtext,...
-– for Interacting with graphics, use locator, identify
-– For three dimensional data, use contour, image, persp, 
+# What is Data Visualization?
+It is a technique used to deliver insights in data using visual cues such as graphs, charts, maps etc.
+
+## Advantages of Data Visualization in R
+
+1. R offers a broad collection of visualization libraries along with extensive online guidance on their usage
+2. R offers data visualization in the form of 3D models and multipanel charts
+3. In R, one can easily customize our data visualization by changing axes, fonts, legends, annotations and labels
+
+## Disdvantages of Data Visualization in R
+
+1. R is only preferred for data visualization if its done on a standalone server.
+2. Data visualization in R is slow for large amounts of data
+
+
+## Other Data Visualization Tools
+Popular data visualization tools other than R are:
+
+* Tableu
+* Power Bi
+* Plotly
+* Infogram
+* Google Charts
+* Excel
+* Kibana
+* Matplotlib
+
+## Data Visualization Application Areas
+Data visualization can be employed for various purposes:
+
+* Presenting analytical conclusions of the data to non-analysts departments
+* Health monitoring to track any anomaly 
+* Discover repeating patterns and trends in consumer and marketing data
+* By meteorologists for assessment of prevalent weather changes
+* Visualization of traffic monitoring and estimating travel time using real-time maps
+
+## Types of Data Visualizations
+Some of the types of visualizations offered by R are:
+
+* Barplot
+* Histogram
+* Boxplot
+* Scatterplot
+* Piecharts
+* Heat Maps
+* Maps
+* 3D Images
+
+##### General Features
+- For simple plotting, use ***plot, hist, pairs, boxplot,...***
+– To add to existing plots, use ***points, lines, abline, legend, title,
+mtext,...***
+– For interacting with graphics, use ****locator, identify****
+– For three dimensional data, use ***contour, image, persp,....*** 
 ```{r}
 library(MASS) # loads MASS package
-# Colour points and choose plotting symbols according to the
-# levels of a factor
+
+- Colour points and choose plotting symbols according to the levels of a factor
+```{r}
 plot(Cars93$Weight, Cars93$EngineSize, col=as.numeric(Cars93$Type),pch=as.numeric(Cars93$Type))
-# Adds x and y axes labels and a title.
+```
+
+- Adds x and y axes labels and a title
+
+```{r}
 plot(Cars93$Weight, Cars93$EngineSize, ylab="Engine Size",xlab="Weight", main="My plot")
-# Add lines to the plot.
+```
+
+- Add lines to the plot.
+
+```{r}
 lines(x=c(min(Cars93$Weight), max(Cars93$Weight)), y=c(min(Cars93$EngineSize), max(Cars93$EngineSize)), lwd=4, lty=3, col="green")
 abline(h=3, lty=2) # horizontal line
 abline(v=1999, lty=4) # vertical line
 ```
+### Examples of Data Visualization Techniques
+
+### (a) Bar Plot
+* Used for both continuous and categorical variable plotting.
+* There are 2 types: -Horizontal and Vertical
+* In R, use ***barplot( )*** function
+
+#### Barplots are used to:
+
+* Perform a comparative study between the various data categories in data set
+* Analyze the change of a variable over time in months or years
+
+#### Bar Plot Example in R 
+**Horizontal Barplot Example**
+```{r}
+library(datasets)
+data(airquality)
+barplot(airquality$Ozone,main="Ozone Concentration in air",
+xlab="ozone levels", horiz=TRUE)
 ```
+
+**Vertical Barplot Example**
+```{r}
+data(airquality)
+barplot(airquality$Ozone ,main="Ozone Concentration in air",
+xlab="ozone levels", col="blue", horiz=FALSE)
+```
+
+### (b) Histogram
+
+* Almost similar to a bar chart.
+* Uses bars of varying heights to represent distribution of data.
+* In R, use ***hist( )*** function
+
+#### Histogram are used to:
+
+* Verify unequal and symmetric distributions of data
+* Identify deviations from expected values
+
+#### Histogram Example in R
+
+```{r}
+data(airquality)
+hist(airquality$Temp, main="Maximum Daily Temperature", xlab="Temp(Farenheit)", xlim=c(50,125), col="yellow", freq=TRUE)
+```
+
+### (c) Box Plot
+
+* It’s a statistical summary of the given data presented graphically.
+* It depicts information such as minimum, maximum, median, first quartile, third quartile and the interquartile range.
+* In R, use ***boxplot( )*** function
+
+#### Boxplots are used to:
+
+* Give a comprehensive statistical description of data
+* Identify the outlier points that don’t lie in IQR of data.
+
+#### Boxplots Example in R:
+
+**One Box Plot Example**
+
+```{r}
+data(airquality)
+boxplot(airquality$Wind, main="Average Wind Speed",
+xlab="Miles per hour", ylab="Wind",
+col="green", border="blue", 
+horizontal=TRUE)
+```
+
+**Multiple Box Plots Example**
+```{r}
+data(airquality)
+boxplot(airquality[ ,0:4], main="Airquality multiple parameters")
+```
+
+### (d) Scatter Plot
+
+* It’s composed of many points on the Cartesian plane.
+* Each point denotes the value taken by two parameters and helps us easily identify the relationship between them
+* In R, use ***plot(x,y)*** function
+
+#### Scatter Plots are used to:
+* Show whether an association exists between bivariate data
+* Measure the strength and direction of such a relationship
+
+#### Scatter Plot Example in R
+**Single Scatter Plot Example**
+
+```{r}
+data(trees)
+plot(trees$Girth,trees$Volume, main="Relationship between Girth and Volume",
+xlab="Girth",ylab="Volume")
+abline(lm(trees$Volume~trees$Girth))
+```
+
+**Pairwise Scatter Plot Example**
+```{r}
+data(trees)
+pairs(trees)
+```
+### (e) Pie Chart
+
+* It’s a representation of values as slices of a circle with different colors.
+* The slices are labelled and numbers corresponding to each slice is also represented in chart
+* In R, use ***pie( )*** function and only takes positive numbers as input
+
+#### Pie Charts are used to:
+
+* Show how total amount is divided between levels of a categorical variable as a circle
+* Visualize and understand the proportionate parts of the data
+
+#### Pie Chart Example in R
+**Example 1**
+
+```{r}
+data(iris)
+flower_data=table(iris$Species)
+pie(flower_data)
+```
+
+**Example 2**
+```{r}
+x <- c(21, 62, 10, 53)
+labels <- c("London", "New York", "Singapore", "Mumbai")
+pie(x,labels,main="Monopoly Game Cities",col=1:4)
+```
+
+
+### (f) Heat Map
+
+* It’s a graphical representation of data using colors to visualize the value of the matrix such as rows and columns
+* In R, use ***heatmap( )*** function
+
+#### Heat Maps are used to:
+
+*Show the relationship between two variables, one plotted on each axis.
+
+ The color change across each axis may show you whether there are any patterns in value for one or both variables
+
+#### Heat Map Example in R 
+
+```{r}
+set.seed(100)
+data=matrix(rnorm(50,0,5), nrow=5,ncol=5)
+
+#Column names
+colnames(data)=paste0("col",1:5)
+
+#Row names
+rownames(data)=paste0("row",1:5)
+heatmap(data)
