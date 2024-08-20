@@ -153,6 +153,8 @@ Nothing happens, right?
 
 - setwd("E:/R projects")
 
+-Alternatively, you can manually set your working directory folder in your drop-down menus by going to **Session > Set Working Directory > Choose Directory…**
+
 ## RStudio Projects
 - RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents
 
@@ -649,6 +651,8 @@ There are a few rules to keep in mind while naming an object in R.
 * data <- read.table("location of your file,.txt") #if text file
 
 * data <- read.csv("location of your file.csv") #if csv file
+
+* data<-read_csv("location of your file.csv") # using readr package
 
 * for excel file, install the package "read.xl".
 
