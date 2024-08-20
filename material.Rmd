@@ -220,8 +220,7 @@ for input, it prints out its prompt, a ">".
 
 - Commands consist of expressions or assignments and are
 separated by a semi-colon (;) or by a newline. They can be
-grouped together using braces (f and g ) and comments
-can be included and are indicated with a hash (#).
+grouped together using braces (f and g ).
 
 - Enter a line with a command after the prompt and press
 Enter. The programme carries out the command and
@@ -240,24 +239,11 @@ command.
 line, the prompt + is displayed on subsequent lines until
 the command is syntactically complete.
 
-## Datasets: included in R
-- A number of small datasets are included with R during installation. We might make use of one or more.
-
-- There is no further installation required to access the included datasets.
-
-- Command library loads the package MASS (for Modern Applied Statistics with S) into memory.
-
-**library(MASS)**
-
-- Command **data()** will list all the datasets in loaded packages. 
-- The command **data(phones)** will load the data set phones into memory
-
-
 ## R as a Calculator
 
 - A basic but useful purpose of R is to perform simple
 calculations
-```{r}
+```{r, echo= TRUE}
 # Addition and Subtraction
 5 + 4
 
@@ -281,6 +267,51 @@ you have saved the file.
 
 - Open RStudio once more and try to locate the script file and
 then open it once more for use.
+
+## Essentials of R programming
+
+## Data types in R
+
+1. Numeric ; Decimal values are called numerics in R.
+```{r}
+x<-1.5
+class(x)
+
+#The fact that x is not an integer can be confirmed with the is.integer function.
+is.integer(x) #is x an integer
+```
+
+2. Integer ; To create an integer variable in R, we invoke the as.integer function.
+We can be assured that y is indeed an integer by applying the is.integer
+function. 
+```{r}
+y<-as.integer(3)
+```
+3. Complex; A complex value in R is defined via the pure imaginary value i.
+```{r}
+z = 1 + 3i
+class(z)
+```
+4. Logical ; A logical value is often created via comparison between variables. It is binary,
+i.e. two possible values represented by TRUE and FALSE
+```{r}
+x<- c(9, 4, 5, 1)
+x>6
+```
+Common comparison operators
+
+```{r,echo= FALSE}
+options(knitr.kable.NA = '')
+data.frame(Operator = c(">", "<", ">=", "<=", "==", "! ="),
+          Description = c("Greater than", "Less than", "Greater than or Equal to","Less than or Equal to", "Equal to", "Not Equal to"),
+           Example = c("3 > 2","4<5","3 >= 3","3 <= 2","2 == 3","2! = 3"), 
+           Result = NA) |>
+  knitr::kable()
+```
+
+5. Character/String
+
+6. Factor
 
 ## Variable names
 
@@ -420,6 +451,18 @@ other visualization packages.
 A consistent, simple and easy-to-use set of wrappers around the
 fantastic ‘stringi’ package.
 
+## Datasets: included in R
+- A number of small datasets are included with R during installation. We might make use of one or more.
+
+- There is no further installation required to access the included datasets.
+
+- Command library loads the package MASS (for Modern Applied Statistics with S) into memory.
+
+**library(MASS)**
+
+- Command **data()** will list all the datasets in loaded packages. 
+- The command **data(phones)** will load the data set phones into memory
+
 ## \textcolor{blue}{Exercise}
 
 - install the following packages using the p_load function from
@@ -446,10 +489,6 @@ a < 4
 a > 9 | a < 4
 a[a > 9 | a < 4]
 ```
-
-## Essentials of Programming
-
-## Data types 
 
 
 ## Creating objects in R
