@@ -593,6 +593,8 @@ There are a few rules to keep in mind while naming an object in R.
 
 * data <- read.csv("location of your file.csv") #if csv file
 
+* data<-read_csv("location of your file.csv") # using readr package
+
 * for excel file, install the package "read.xl".
 
 * library("readxl")
