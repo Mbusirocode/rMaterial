@@ -153,6 +153,8 @@ Nothing happens, right?
 
 - setwd("E:/R projects")
 
+-Alternatively, you can manually set your working directory folder in your drop-down menus by going to **Session > Set Working Directory > Choose Directory…**
+
 ## RStudio Projects
 - RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents
 
