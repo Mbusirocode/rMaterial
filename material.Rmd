@@ -70,20 +70,30 @@ www.cran.r-project.org
 - R Studio is an Integrated Development Environment(IDE) for R.
 
 - At its simplest, R is like a car’s engine while RStudio is like a
-car’s dashboard
--R Studio offers numerous helpful features:
+car’s dashboard. 
 
--A user-friendly interface
--The ability to write and save reusable scripts
--Easy access to all the imported data and created objects (like variables, functions, etc.)
--Exhaustive help on any object
--Code autocompletion
--The ability to create projects to organize and share your work with your collaborators more efficiently
--Plot previewing
--Easy switching between terminal and console
--Operational history tracking
+- R Studio offers numerous helpful features:
+
+1) A user-friendly interface
+
+2) The ability to write and save reusable scripts
+
+3) Easy access to all the imported data and created objects (like variables, functions, etc.)
+
+4) Exhaustive help on any object
+
+5) Code autocompletion
+
+6) The ability to create projects to organize and share your work with your collaborators more efficiently
+
+7) Plot previewing
+
+8) Easy switching between terminal and console
+
+9) Operational history tracking
 
 ## Getting started with R Studio
+
 - Having installed R and RStudio on your computer, you have
 two new programs (also called applications) you can open.
 
@@ -93,15 +103,19 @@ your computer.
 - Now that we have installed RStudio, lets take a couple minutes
 to familiarize ourselves with the RStudio environment.
 
-```{r, echo=FALSE, fig.cap="Overview of R Studio", out.width = '100%'}
-knitr::include_graphics("overviewRstudio.png")
-```
-*RStudio Panes*
- 1. The **Source pane** is where you can edit and save R or Python scripts or author computational documents like Quarto and R Markdown.
- 2. The **Console pane** is used to write short interactive R commands. There's also a history tab with a list of your prior commands.
- 3. The **Environment pane** displays temporary R objects as created during that R session.
- 4. The **Output pane** displays the plots, tables, or HTML outputs of executed code along with files saved to disk.
+## *RStudio Panes*
 
+ 1. The **Source pane** is where you can edit and save R or Python scripts or author computational documents like Quarto and R Markdown.
+ 
+ 2. The **Console pane** is used to write short interactive R commands. There's also a history tab with a list of your prior commands.
+ 
+ 3. The **Environment pane** displays temporary R objects as created during that R session.
+ 
+ 4. The **Output pane** displays the plots, tables, or HTML outputs of executed code along with files saved to disk. 
+ 
+```{r, echo=FALSE, fig.cap="Overview of R Studio", out.width = '100%'}
+knitr::include_graphics("rstudio_panes.jpeg")
+```
 
 \textcolor{red}{Take note!}
 
@@ -141,14 +155,23 @@ Nothing happens, right?
 
 ## RStudio Projects
 - RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents
+
 - To create a new project in the RStudio, use the **File > New Project** command
+
 - In the **New Project** wizard that pops up, select **New Directory**, then **New Project**. Name the project “hello” and then click the **Create Project** button
+
 - This will launch you into a new RStudio Project inside a new folder called “hello”
+
 - RStudio projects give you a solid workflow that will serve you well in the future:
+
    - Create an RStudio project for each data analysis project.
+   
    - Keep data files there; we’ll talk about loading them into R in Local Data.
+   
    - Keep scripts there; edit them, run them in bits or as a whole.
+   
    - Save your outputs (plots and cleaned data) there.
+   
 - Everything you need is in one place, and cleanly separated from all the other projects that you are working on.
 
 
@@ -212,6 +235,7 @@ prints the result if relevant.
 
 - The prompt > indicates that R is ready for another
 command. 
+
 - If a command is incomplete at the end of a
 line, the prompt + is displayed on subsequent lines until
 the command is syntactically complete.
@@ -348,7 +372,7 @@ packages are included in the core tidyverse: ggplot2, dplyr,
 tidyr, readr, purrr, tibble, stringr and forcats. 
 ### Install from CRAN
 ```{r}
-install.packages("tidyverse")
+#install.packages("tidyverse")
 ```
 ### Usage
 ```{r}
@@ -408,6 +432,12 @@ a < 4
 a > 9 | a < 4
 a[a > 9 | a < 4]
 ```
+
+## Essentials of Programming
+
+## Data types 
+
+
 ## Creating objects in R
 
 * Objects in R, are what we call variables in other programming languages. They are instances of a class.
