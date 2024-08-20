@@ -578,6 +578,7 @@ There are a few rules to keep in mind while naming an object in R.
 ## Importing and exporting Data in R
 
 \textcolor{blue}{Reading Data into R}
+*Reading data refers to the process of importing data from a (working) directory or website into R
 
  * read.table, read.csv, for reading tabular data
  * readLines, for reading lines of a text file
@@ -625,6 +626,7 @@ sd(weight)
 plot(height,weight,pch=3)
 
 ```
+## Writing data from R
 
 ## Getting help in R 
 
