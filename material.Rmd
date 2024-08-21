@@ -1,4 +1,4 @@
-gi---
+---
 title: "Introduction to R"
 author: "dataCraft Lab "
 date: "`r Sys.Date()`"
@@ -531,6 +531,9 @@ a > 9 | a < 4
 a[a > 9 | a < 4]
 ```
 
+ \pagebreak
+ 
+## Day 2
 
 ## Creating objects in R
 
@@ -590,9 +593,6 @@ y <-c(10:12)
 data1<-cbind(x, y)
 data2<-rbind(x, y)
 ```
- \pagebreak
- 
-## Day 2
 
                 4). Data Frames:
                 
@@ -720,15 +720,7 @@ m[1, ]  ## Extract the first row
 ```
  ## Subsetting Lists
 Lists in R can be subsetted using all three of the operators
-```{r}
-l<- list(foo = 1:4, bar = 0.6)
- l
-$foo
-$bar
-l[[1]]##extract the first element of the list.
-l[["bar"]]
-x$bar
-```
+
 
 ## Vectorized arithmetic
 - A data vector is simply an array
