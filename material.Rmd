@@ -730,10 +730,42 @@ m[1, ]  ## Extract the first row
 Lists in R can be subsetted using all three of the operators
 
 
-## Vectorized arithmetic
-- A data vector is simply an array
-of numbers, and a vector variable can be constructed like this.
+##Removing NA Values
+-When doing data analysis we may be inerested in  removing missing values(NA s)
+```{r}
+d<- c(1, 2, NA, 4, NA, 5)
+bad <- is.na(d)
+print(bad)
+d[!bad]
+```
+-If you have multiple R objects and you want to take the subset with no missing values in any of those objects
+```{r}
+x <- c(1, 2, NA, 4, NA, 5)
+y <- c("a", "b", NA, "d", NA, "f")
+good <- complete.cases(x, y)
+good
+ x[good]
+y[good]
+```
+-You can use complete.cases on data frames too. Lets use the airquality data that is in built in R
+```{r}
+head(airquality)
+full <- complete.cases(airquality)
+head(airquality[full, ])
+```
 
+
+## Vectorized arithmetic
+-Many operations in R are vectorized, meaning that operations occur in parallel in certain R objects. This allows you to write code that is efficient, concise, and easier to read than in non-vectorized languages.
+- A data vector is simply an array of numbers, and a vector variable can be constructed like this.
+-The simplest example is when adding two vectors together.
+
+```{r}
+x <- 1:4
+y <- 6:9 
+z <- x + y
+z
+```
 - Suppose that we also have the heights that correspond to
 the weights above. The body mass index (BMI) is defined
 for each person as the weight in kilograms divided by the
@@ -748,11 +780,46 @@ sd(weight)
 plot(height,weight,pch=3)
 
 ```
+<<<<<<< HEAD
 
 ## Writing data from R
 
 - We can write data frames easily to a file, using commands such as write.table(), write.csv()
 
+=======
+
+-Another operation you can do in a vectorized manner is logical comparisons. So suppose you wanted to know which elements of a vector were greater than 2. You could do the following
+```{r}
+x <- 1:4
+x
+x>2
+x >= 2
+x < 3
+y == 8
+```
+
+- Note: subtraction, multiplication and division are also vectorized.
+
+##Sorting Data in R
+-use the order( ) function. By default, sorting is ASCENDING. Prepend the sorting variable by a minus sign to indicate DESCENDING order.
+
+```{r}
+# sorting examples using the mtcars dataset
+attach(mtcars)
+names(mtcars)
+head(mtcars)
+# sort by mpg
+newdata <- mtcars[order(mpg),]
+# sort by mpg and cyl
+newdata <- mtcars[order(mpg, cyl),]
+#sort by mpg (ascending) and cyl (descending)
+newdata <- mtcars[order(mpg, -cyl),]
+detach(mtcars)
+```
+## Writing data from R
+-We can write data frames easily to a file, using commands such as write.table(), write.csv()
+
+>>>>>>> 414086f876d52f409cb3bcfc6e85309cedead553
 - Assuming your data frame is df then use write.csv(df, "specify_path_and_file_name.csv")
 ```{r}
 # Sample data frame
