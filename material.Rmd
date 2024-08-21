@@ -669,6 +669,14 @@ There are two main functions in xlsx package for reading both xls and xlsx Excel
 
 
 ## Subsetting objects in R
+There are three operators that can be used to extract subsets of R objects.
+
+1) The [ operator always returns an object of the same class as the original. It can be used to select multiple elements of an object
+
+ 2) The [[ operator is used to extract elements of a list or a data frame. It can only be used to extract a single element and the class of the returned object will not necessarily be a list or data frame.
+
+3) The $ operator is used to extract elements of a list or data frame by literal name. Its semantics are similar to that of [[.
+
 ## Subsetting a Vector
 objects in R and they can be subsetted using the [] operator
 ```{r}
@@ -685,7 +693,18 @@ m[1, 2] ## extract an element
 m[1, ]  ## Extract the first row
  m[, 2]  ## Extract the second column
 ```
- 
+ ## Subsetting Lists
+Lists in R can be subsetted using all three of the operators
+```{r}
+l<- list(foo = 1:4, bar = 0.6)
+ l
+$foo
+$bar
+l[[1]]##extract the first element of the list.
+l[["bar"]]
+x$bar
+```
+
 ## Vectorized arithmetic
 - A data vector is simply an array
 of numbers, and a vector variable can be constructed like this.
