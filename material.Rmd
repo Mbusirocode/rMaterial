@@ -690,6 +690,22 @@ plot(height,weight,pch=3)
 
 ```
 ## Writing data from R
+-We can write data frames easily to a file, using commands such as write.table(), write.csv()
+
+- Assuming your data frame is df then usse write.csv(df, "specify_path_and_file_name.csv")
+```{r}
+# Sample data frame
+dataFR <- data.frame(
+  name = c("Alice", "Bob", "Charlie"),
+  age = c(22, 30, 28),
+  city = c("Nairobi", "Kisumu", "Kakamega")
+)
+dataFR
+
+```
+write.csv(dataFR , "Path to export the DataFrame\\File Name.csv")
+write.table(df, "Path to export the DataFrame\\data.txt")
+
 
 ## Getting help in R 
 
