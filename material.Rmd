@@ -728,6 +728,13 @@ m[1, ]  ## Extract the first row
  
 ## Subsetting Lists
 Lists in R can be subsetted using all three of the operators
+```{r}
+l <- list(foo=1:4, bar = 0.6)
+l
+l[[1]]
+l[["bar"]]
+l$bar
+```
 
 
 ##Removing NA Values
