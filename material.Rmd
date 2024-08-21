@@ -594,7 +594,7 @@ data1<-cbind(x, y)
 data2<-rbind(x, y)
 ```
 
-                4). Data Frames:
+                4). Data Frames :
                 
 Tabular structures with columns of potentially different data types or different classes. Unlike matrices, data frames can store different classes of objects in each column.
 package "dplyr" is used to work efficiently with data frames.
@@ -610,7 +610,7 @@ dataFR
 
 ```
                 
-           5). Factors 
+           5). Factors :
 Factors are the data objects which are used to represent categorical data and store it on multiple levels. We can have either ordered and unordered factors.e factor function is used to create a factor.           Using factors with labels is better than using integers because factors are self-describing.
            
 ```{r}
@@ -731,14 +731,18 @@ Lists in R can be subsetted using all three of the operators
 
 
 ##Removing NA Values
--When doing data analysis we may be inerested in  removing missing values(NA s)
+-When doing data analysis we may be interested in  removing missing values(NA s)  
+
 ```{r}
 d<- c(1, 2, NA, 4, NA, 5)
 bad <- is.na(d)
 print(bad)
 d[!bad]
+
 ```
--If you have multiple R objects and you want to take the subset with no missing values in any of those objects
+
+- If you have multiple R objects and you want to take the subset with no missing values in any of those objects
+
 ```{r}
 x <- c(1, 2, NA, 4, NA, 5)
 y <- c("a", "b", NA, "d", NA, "f")
@@ -746,12 +750,16 @@ good <- complete.cases(x, y)
 good
  x[good]
 y[good]
+
 ```
--You can use complete.cases on data frames too. Lets use the airquality data that is in built in R
+
+- You can use complete.cases on data frames too. Lets use the Airquality data that is in built in R
+
 ```{r}
 head(airquality)
 full <- complete.cases(airquality)
 head(airquality[full, ])
+
 ```
 
 
@@ -780,15 +788,13 @@ sd(weight)
 plot(height,weight,pch=3)
 
 ```
-<<<<<<< HEAD
+
 
 ## Writing data from R
 
 - We can write data frames easily to a file, using commands such as write.table(), write.csv()
 
-=======
-
--Another operation you can do in a vectorized manner is logical comparisons. So suppose you wanted to know which elements of a vector were greater than 2. You could do the following
+- Another operation you can do in a vectorized manner is logical comparisons. So suppose you wanted to know which elements of a vector were greater than 2. You could do the following
 ```{r}
 x <- 1:4
 x
@@ -801,6 +807,7 @@ y == 8
 - Note: subtraction, multiplication and division are also vectorized.
 
 ##Sorting Data in R
+
 -use the order( ) function. By default, sorting is ASCENDING. Prepend the sorting variable by a minus sign to indicate DESCENDING order.
 
 ```{r}
@@ -817,10 +824,11 @@ newdata <- mtcars[order(mpg, -cyl),]
 detach(mtcars)
 ```
 ## Writing data from R
+
 -We can write data frames easily to a file, using commands such as write.table(), write.csv()
 
->>>>>>> 414086f876d52f409cb3bcfc6e85309cedead553
 - Assuming your data frame is df then use write.csv(df, "specify_path_and_file_name.csv")
+
 ```{r}
 # Sample data frame
 dataFR <- data.frame(
