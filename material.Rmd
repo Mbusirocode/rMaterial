@@ -1,4 +1,4 @@
----
+gi---
 title: "Introduction to R"
 author: "dataCraft Lab "
 date: "`r Sys.Date()`"
@@ -470,6 +470,7 @@ A consistent, simple and easy-to-use set of wrappers around the
 fantastic ‘stringi’ package.
 
 ## Datasets: included in R
+
 - A number of small datasets are included with R during installation. We might make use of one or more.
 
 - There is no further installation required to access the included datasets.
@@ -483,12 +484,34 @@ fantastic ‘stringi’ package.
 
 ## \textcolor{blue}{Exercise}
 
-- install the following packages using the p_load function from
+1) Compute$\frac{62+4}{1.5^3}$ and assign the name calculation to the result. Print calculation to the console
+```{r, echo= TRUE}
+calculation<- (62+4)/1.5^{3}
+print(calculation)
+```
+2) Define a vector months containing the numbers 29, 63, 7, 23, 84, 10 and 9. Compute a vector years from it by dividing months by 12. Print years to the console.
+```{r, echo= TRUE}
+months<-c(29, 63, 7, 23, 84, 10,9)
+years<-months/12
+print(years)
+```
+3) Check whether the string “R rules!” is equal to “r rules!” for R.
+
+4) The data set Orange contains information on the age in days and trunk circumference in mm of orange trees. Load it into you workspace with data(Orange) and have a look at it with View(Orange). Create a vector called average.growth by dividing the circumference by the age and print it to the console.
+
+```{r}
+data(Orange)
+View(Orange)
+average<-Orange$circumference/Orange$age
+print(average)
+```
+
+5) Install the following packages using the p_load function from
 pacman package.
 
 - MASS, ggplot2 , dplyr, tidyr
 
-- Execute the following in a new r file called demo.R
+6) Execute the following in a new r file called demo.R
 
 ```{r}
 # Multiplying 3 by 4
@@ -567,8 +590,10 @@ y <-c(10:12)
 data1<-cbind(x, y)
 data2<-rbind(x, y)
 ```
+ \pagebreak
  
 ## Day 2
+
                 4). Data Frames:
                 
 Tabular structures with columns of potentially different data types or different classes. Unlike matrices, data frames can store different classes of objects in each column.
@@ -715,6 +740,7 @@ dim(mtcars)
 head(mtcars)
 str(mtcars)
 ```
+\pagebreak
 
 ## Day 3
 
