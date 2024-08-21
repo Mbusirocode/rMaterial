@@ -725,7 +725,8 @@ m[1, 2] ## extract an element
 m[1, ]  ## Extract the first row
  m[, 2]  ## Extract the second column
 ```
- ## Subsetting Lists
+ 
+## Subsetting Lists
 Lists in R can be subsetted using all three of the operators
 
 
@@ -747,10 +748,12 @@ sd(weight)
 plot(height,weight,pch=3)
 
 ```
-## Writing data from R
--We can write data frames easily to a file, using commands such as write.table(), write.csv()
 
-- Assuming your data frame is df then usse write.csv(df, "specify_path_and_file_name.csv")
+## Writing data from R
+
+- We can write data frames easily to a file, using commands such as write.table(), write.csv()
+
+- Assuming your data frame is df then use write.csv(df, "specify_path_and_file_name.csv")
 ```{r}
 # Sample data frame
 dataFR <- data.frame(
@@ -761,8 +764,10 @@ dataFR <- data.frame(
 dataFR
 
 ```
-write.csv(dataFR , "Path to export the DataFrame\\File Name.csv")
-write.table(df, "Path to export the DataFrame\\data.txt")
+
+- write.csv(dataFR , "Path to export the DataFrame\\File Name.csv")
+
+- write.table(df, "Path to export the DataFrame\\data.txt")
 
 
 ## Getting help in R 
