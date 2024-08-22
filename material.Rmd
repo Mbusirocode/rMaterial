@@ -1103,3 +1103,234 @@ colnames(data)=paste0("col",1:5)
 rownames(data)=paste0("row",1:5)
 heatmap(data)
 ```
+
+### (g) 3D Graphs
+
+* One can create 3D surfaces in perspective view
+* Using the ***preps(x,y,z)*** function
+
+#### 3D graphs are used to:
+
+* Show complex relationships, patterns, and trends in data that might not be obviously visible in 2D graphs.
+
+#### 3D Graph Example in R
+
+
+```{r}
+x=seq(-5,5,by=0.1)
+y=seq(-5,5,by=0.1)
+
+z=outer(x,y,function(x,y) (sin(sqrt(x^2+y^2))))
+
+persp(x, y, z, theta=30, phi=50)
+```
+
+
+### (h)Maps
+
+* One  can visualize and display graphical maps in R
+* Using the ***map()*** function in **maps** package
+
+
+#### Map Example in R
+
+#install.packages("maps")
+library(maps)
+data_cities=read.csv("worldcities.csv",header=TRUE)
+
+df=data.frame(data_cities)
+
+map(database="world")
+
+#Mapping points on the map
+points(x=df$lat[1:500],y=df$lng[1:500], col="red")
+
+
+## Data Capentry in R using the ***dplyr*** Package
+
+* ***dplyr*** is a package in R that makes data manipulation to be easier.
+* It was developed in 2014.
+* It provides easy tools for the most common data manipulation tasks.
+* It’s built directly to work with dataframes.
+* One needs to load the package before using it i.e. via:
+
+library("dplyr")
+
+```{r}
+library("dplyr")
+```
+
+### Common functionalities under the **dplyr** R package
+
+#### (a) To Extract Specific Rows  from a Dataset
+* The ***filter()*** function is used to extract specific values from a dataset.
+
+**Example**
+From iris dataset, extract the Setosa species data using the filter() function.
+
+```{r}
+data(iris)
+
+filter(iris,Species=="setosa")
+
+iris%>%filter(Species=="setosa")
+```
+#### (b) To Select Specific Columns or VAriables  from a Dataset
+* The ***select()*** function is used to select specific columns from a dataset.
+
+**Example 1**
+From iris dataset, select only the sepal length and sepal width.
+```{r}
+data(iris)
+
+iris%>%select(c("Sepal.Length","Sepal.Width"))
+```
+
+**Example 2**
+From iris dataset, select all the other variables other than the sepal length and sepal width.
+```{r}
+data(iris)
+
+iris%>%select(-c("Sepal.Length","Sepal.Width"))
+```
+
+**Example 3**
+From iris dataset, select all the variables starting with the letter "S" using the select() function.
+```{r}
+data(iris)
+
+iris%>%select(starts_with("S"))
+```
+
+**Example 4**
+From iris dataset, select all the variables that ends with the letter "h".
+```{r}
+data(iris)
+
+iris%>%select(ends_with("h"))
+```
+
+**Example 5**
+From iris dataset, select all Numeric Variables.
+```{r}
+data(iris)
+
+iris%>%select_if(is.numeric)
+```
+
+**Example 6**
+From iris dataset, select the second and third  Variables using their index.
+```{r}
+data(iris)
+
+iris%>%select(2:3)
+```
+
+#### (c) To link Several Functions together
+
+* **dplyr** allows its users to link several of its functionalities together using the %>% function.
+* This is better known as piping
+* Piping entails linking together a sequence of functions.
+
+**Example 1**
+From iris dataset, extract the Sepal lengths of  the "setosa" specie.
+```{r}
+data(iris)
+
+iris%>%filter(Species=="setosa")%>%
+  select(Sepal.Length)
+```
+
+**Example 2**
+From iris dataset, extract the both the Sepal lengths and widths of  the "setosa" specie.
+```{r}
+library("dplyr")
+data(iris)
+
+iris%>%filter(Species=="setosa")%>%
+select(Sepal.Length,Sepal.Width)
+```
+
+#### (d) Create new columns of data based on existing columns
+
+* The ***mutate()*** function is used to apply other chosen functions to existing columns and create new columns of data based on existing columns.
+
+**Example**
+Create a new dataset from the iris dataset and call it **data_iris** by introducing an additional column called **ratio**
+
+Where; ratio=Sepal Length/ Sepal Width
+
+```{r}
+data_iris=iris%>%mutate(ratio=Sepal.Length/Sepal.Width)
+```
+
+#### (e) Split-Apply and Combine Functions together
+
+* The split-apply-combine concept is used to split data into groups, apply some analysis to each group and then combine the results in tabular format.
+* The concept uses both the **group_by()** and **summarize()** functions.
+* **group_by()** function splits the data into groups.
+* **summarize()** function collapses each group into a single row by applying an aggregating or summary function to each group.
+* One can be able to get a summary of the mean, median, min, max e.t.c. per group.
+
+**Example**
+
+1. Find the mean and variance of the iris petal lengths of the different species
+
+```{r}
+data(iris)
+
+iris%>%group_by(Species)%>%
+summarize(mean(Petal.Length),var(Petal.Length))
+```
+2. Use a boxplot to visually see this distribution
+
+```{r}
+data(iris)
+
+boxplot(iris$Petal.Length~iris$Species, xlab="Iris Specie", ylab="Petal Length", main="Different Iris Species Petal Lengths")
+```
+
+## **Exercize**
+Using the airquality data and with the assist of dplyr package;
+Create a new dataset air_new  that omits the “NA” values from the dataset.
+
+```{r}
+data(airquality)
+air_new<- airquality%>%filter(complete.cases(airquality))
+```
+2. Using the new dataset, check on the structure and summary statistics 
+```{r}
+data(airquality)
+
+air_new<- airquality%>%filter(complete.cases(airquality))
+
+
+str(air_new)
+summary(air_new)
+```
+3. Using the new dataset, find the mean values of “Ozone”, “Wind” and Temperature per month.
+
+```{r}
+data(airquality)
+air_new<- airquality%>%filter(complete.cases(airquality))
+
+air_new%>%group_by(Month)%>%summarize(mean(Ozone),mean(Temp),
+mean(Wind))
+```
+
+
+4. Create separate comparative box plots to analyse Ozone levels, Temperature and Wind per month.
+
+```{r}
+data(airquality)
+air_new<- airquality%>%filter(complete.cases(airquality))
+
+boxplot(air_new$Ozone~air_new$Month, xlab="Month",ylab="Ozone Levels", main="Comparison Plot of Ozone Levels by Month")
+
+
+boxplot(air_new$Temp~air_new$Month, xlab="Month",ylab="Temperature Levels", main="Comparison Plot of Temperature Levels by Month" )
+
+
+boxplot(air_new$Wind~air_new$Month, xlab="Month",ylab="Wind Levels", main="Comparison Plot of Wind Levels by Month")
+
+```
